@@ -59,12 +59,13 @@ def main():
         })
         predicted_price = model.predict(input_data)
         
+        col1, col2 = st.columns([1.2,2])
         if ratio == "USD":
-            st.subheader("House Price in USD:")
-            st.success(f" {(predicted_price[0]*1044.28):.2f} USD")
+            col1.subheader("House Price in USD:")
+            col2.success(f" {(predicted_price[0]*1044.28):.2f} USD")
         else:
-            st.subheader("House Price in INR:")
-            st.success(f" {(predicted_price[0]*100000):.2f} INR")
+            col1.subheader("House Price in INR:")
+            col2.success(f" {(predicted_price[0]*100000):.2f} INR")
 
 if __name__ == "__main__":
     main()
